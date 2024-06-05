@@ -1,0 +1,11 @@
+.orbit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.planet {
+  flex: 0 0 calc(20% - 1rem); /* Ensure each planet takes up 20% of the container width minus some margin */
+  text-align: center; /* Center the text */
+  margin: 0.5rem; /* Add some margin between each planet */
+}
