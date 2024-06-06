@@ -34,77 +34,81 @@ const Navigation = () => {
   };
 
   return (
-    <div className='flex justify-between gap-[100px] h-[50px] items-center px-10 py-3'>
+    <nav className="flex justify-between items-center py-3 px-10 bg-[#EEEEEE]">
       <div ref={nameRef}>
         <Link href='/'>
-        {"Hemant Meena".split("").map((letter, index) => (
-          <span key={index} className="letter">
-            {letter}
-          </span>
-        ))}
+          <div className="text-lg font-semibold">Hemant Meena</div>
         </Link>
       </div>
-      <div className='flex gap-10'>
-        <Link href='/about' legacyBehavior>
-          <a
+      <ul className="flex gap-10">
+        <li>
+          <Link href='/about'>
+            <div
+              className="hover:scale-125 transition-transform duration-300"
+              ref={addToRefs}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              About
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href='/contact'>
+            <div
+              className="hover:scale-125 transition-transform duration-300"
+              ref={addToRefs}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Contact Me
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href='/project'>
+            <div
+              className="hover:scale-125 transition-transform duration-300"
+              ref={addToRefs}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Projects
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href='/skills'>
+            <div
+              className="hover:scale-125 transition-transform duration-300"
+              ref={addToRefs}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Skills
+            </div>
+          </Link>
+        </li>
+      </ul>
+      <div className="flex gap-10">
+        <Link href='https://github.com/hemantmeena2005'>
+          <FaGithub
+            className="text-xl hover:text-blue-500 transition-colors duration-300"
             ref={addToRefs}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-          >
-            About
-          </a>
+          />
         </Link>
-        <Link href='/contact' legacyBehavior>
-          <a
+        <Link href='https://www.linkedin.com/in/hemant-meena-77320b272/'>
+          <FaLinkedin
+            className="text-xl hover:text-blue-500 transition-colors duration-300"
             ref={addToRefs}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-          >
-            Contact Me
-          </a>
-        </Link>
-        <Link href='/project' legacyBehavior>
-          <a
-            ref={addToRefs}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Projects
-          </a>
-        </Link>
-        <Link href='/skills' legacyBehavior>
-          <a
-            ref={addToRefs}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Skills
-          </a>
+          />
         </Link>
       </div>
-      <div className='flex gap-10'>
-        <Link href='https://github.com/hemantmeena2005' legacyBehavior>
-          <a
-            className='scale-[1.5]'
-            ref={addToRefs}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <FaGithub />
-          </a>
-        </Link>
-        <Link href='https://www.linkedin.com/in/hemant-meena-77320b272/' legacyBehavior>
-          <a
-            className='scale-[1.5]'
-            ref={addToRefs}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <FaLinkedin />
-          </a>
-        </Link>
-      </div>
-    </div>
+    </nav>
   );
 };
 

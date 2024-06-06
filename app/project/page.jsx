@@ -1,12 +1,25 @@
 "use client"
 import React from 'react';
+import "@/app/project/style.css"
 import { motion } from 'framer-motion';
 import { FaReact } from 'react-icons/fa'; // Example tag icon
 import Image from 'next/image';
+import { useState ,useEffect } from 'react';
 
 const Project = () => {
+  const [splashScreenVisible, setSplashScreenVisible] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSplashScreenVisible(false);
+    }, 1000); // Adjust the delay timing here
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
+    <>
+    <div className={`splash-screen ${splashScreenVisible ? '' : 'hidden'}`}></div>
     <div className="flex flex-col gap-10 p-20 items-center justify-center h-full ">
+      <a href="https://mywebproject1.vercel.app">
       <div className="flex items-start">
         {/* Left side - Project */}
         <div className="flex flex-col">
@@ -55,6 +68,7 @@ const Project = () => {
           </div>
         </div>
       </div>
+      </a>
 
       {/* Second pair of project and text */}
       <div className="flex items-start">
@@ -157,6 +171,7 @@ const Project = () => {
       </div>
 
     </div>
+    </>
   );
 };
 

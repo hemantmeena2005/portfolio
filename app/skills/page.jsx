@@ -15,15 +15,15 @@ const Skills = () => {
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
             <FaCss3 className="text-5xl text-blue-500 mb-2" />
-            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
+            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">CSS</div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
             <FaReact className="text-5xl text-green-500 mb-2" />
-            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
+            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">React JS</div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
             <FaNodeJs className="text-5xl text-violet-500 mb-2" />
-            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
+            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">Node Js</div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
             <FaJsSquare className="text-5xl text-yellow-400 mb-2" />
@@ -62,11 +62,15 @@ const Skills = () => {
             <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
           </motion.div> */}
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
-            <SiMysql className="text-5xl text-purple-500 mb-2" />
+            <SiMysql className="text-5xl text-green-500 mb-2" />
             <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
-            <SiPostman className="text-5xl text-purple-500 mb-2" />
+            <SiPostman className="text-5xl text-red-500 mb-2" />
+            <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
+            <FaCompass className="text-5xl text-blue-500 mb-2" />
             <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-lg shadow-lg">HTML</div>
           </motion.div>
           <motion.div whileHover={{ scale: 1.2 }} className="planet html group relative">
