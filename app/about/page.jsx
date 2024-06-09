@@ -2,8 +2,9 @@
 import '@/app/about/style.css'; // Import the CSS file
 import React, { useEffect, useState ,useRef } from 'react';
 import gsap from 'gsap';
+import Shery from 'sheryjs';
 import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
-import SplitText from 'gsap-trial/SplitText';
+// import SplitText from 'gsap-trial/SplitText';
 
 const About = () => {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
@@ -41,22 +42,14 @@ const About = () => {
 
   useEffect(() => {
     if (typeof document !== 'undefined') { // Ensure code runs only in the browser
-      gsap.registerPlugin(SplitText);
-
-      const splitText = new SplitText('#t', { type: 'chars' });
-      gsap.from(splitText.chars, {
-        duration: 1,
-        y: 100,
-        autoAlpha: 0,
-        stagger: 0.05,
-      });
-
-      const splitPara = new SplitText('#para', { type: 'words' });
-      gsap.from(splitPara.words, {
-        duration: 1,
-        y: 100,
-        autoAlpha: 0,
-        stagger: 0.05,
+      Shery.textAnimate("#t" /* Element to target.*/, {
+        //Parameters are optional.
+        style: 1,
+        y: 10,
+        delay: 0.1,
+        duration: 2,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        multiplier: 0.1,
       });
     }
   }, []);

@@ -18,6 +18,54 @@ const Project = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof document !== 'undefined') { // Ensure code runs only in the browser
+      Shery.imageMasker(".mask-target" /* Element to target.*/, {
+        //Parameters are optional.
+        mouseFollower: true,
+        text: "Visit Me",
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 1,
+      });
+      Shery.textAnimate("#t1" /* Element to target.*/, {
+        //Parameters are optional.
+        style: 1,
+        y: 10,
+        delay: 0.1,
+        duration: 0.5,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        multiplier: 0.1,
+      });
+      Shery.textAnimate("#t4" /* Element to target.*/, {
+        //Parameters are optional.
+        style: 4,
+        y: 10,
+        delay: 0.1,
+        duration: 0.5,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        multiplier: 0.1,
+      });
+      Shery.textAnimate("#t2" /* Element to target.*/, {
+        //Parameters are optional.
+        style: 2,
+        y: 10,
+        delay: 0.1,
+        duration: 2,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        multiplier: 0.1,
+      });
+      Shery.textAnimate("#t3" /* Element to target.*/, {
+        //Parameters are optional.
+        style: 3,
+        y: 10,
+        delay: 0.1,
+        duration: 2,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        multiplier: 0.1,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     if (typeof document !== 'undefined') {
       import('sheryjs').then((Shery) => {
         Shery.mouseFollower()
@@ -43,7 +91,7 @@ const Project = () => {
             <motion.img
               src="/img.png"
               alt="Project Image"
-              className="w-full h-64 object-cover imag"
+              className="w-full h-64 object-cover imag mask-target"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -86,8 +134,8 @@ const Project = () => {
         {/* Right side - Text */}
         <div className="flex flex-col max-w-[50%] items-start ml-8">
           <div className="mb-4">
-            <h2 className="text-2xl font-semibold">Stays and Hotels</h2>
-            <p className="">
+            <h2 className="text-2xl font-semibold" id='t1'>Stays and Hotels</h2>
+            <p id='t2'>
             Stays and Hotels Finder is a modern web application designed to help users easily search for and discover various accommodation options including hotels, stays, and other lodgings. This application leverages the power of React for a dynamic and responsive user interface, React Router for seamless navigation, and integrates with external APIs to provide real-time data. Tailwind CSS is used to create a clean and modern design, ensuring an intuitive user experience.
             </p>
           </div>
@@ -100,8 +148,8 @@ const Project = () => {
         {/* Left side - Text */}
         <div className="flex flex-col max-w-[50%] items-start ml-8">
           <div className="mb-4">
-            <h2 className="text-2xl font-semibold">PassOP - Password Manager</h2>
-            <p className="text-white">
+            <h2 className="text-4xl font-semibold" id='t1' >PassOP - Password Manager</h2>
+            <p className="text-white" id='t2' >
             PassOP is a React-based password manager that allows users to securely manage passwords for various websites. It features a user-friendly interface for adding, editing, deleting, and viewing passwords, with data stored locally in the browsers local storage for quick access. Key features include the ability to manage website, username, and password entries, toggle password visibility, copy information to the clipboard, and a responsive design that works well on all device sizes.
             </p>
           </div>
@@ -121,14 +169,14 @@ const Project = () => {
             <motion.img
               src="/img2.png"
               alt="Project Image"
-              className="w-full h-64 object-cover imag "
+              className="w-full h-64 object-cover imag mask-target "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">PassOP - Password Manager</h2>
-              <p className="text-gray-700 mb-4">
+              <p className="text-white mb-4" id='t3' >
               React-based app for secure password management with local storage.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -173,14 +221,14 @@ const Project = () => {
             <motion.img
               src="/img3.png"
               alt="Project Image"
-              className="w-full h-64 object-cover imag"
+              className="w-full h-64 object-cover imag mask-target"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">Modern Portfolio</h2>
-              <p className="text-gray-700 mb-4">
+              <p className="text-white mb-4">
                 This is a portfolio clone .
               </p>
               <div className="flex flex-wrap gap-2">
@@ -218,8 +266,8 @@ const Project = () => {
         {/* Right side - Text */}
         <div className="flex flex-col items-start ml-8">
           <div className="mb-4">
-            <h2 className="text-2xl font-semibold">Html Portfolio</h2>
-            <p className="text-gray-700">
+            <h2 className="text-4xl font-semibold" id='t1' >Html Portfolio</h2>
+            <p className="text-white" id='t4' >
               THis is a portfolio clone it uses concepts of js , css and html.
             </p>
           </div>
