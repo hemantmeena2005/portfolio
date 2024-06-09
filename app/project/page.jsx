@@ -102,7 +102,7 @@ const Project = () => {
           <div className="mb-4">
             <h2 className="text-2xl font-semibold">PassOP - Password Manager</h2>
             <p className="text-white">
-            PassOP is a React-based password manager that allows users to securely manage passwords for various websites. It features a user-friendly interface for adding, editing, deleting, and viewing passwords, with data stored locally in the browser's local storage for quick access. Key features include the ability to manage website, username, and password entries, toggle password visibility, copy information to the clipboard, and a responsive design that works well on all device sizes.
+            PassOP is a React-based password manager that allows users to securely manage passwords for various websites. It features a user-friendly interface for adding, editing, deleting, and viewing passwords, with data stored locally in the browsers local storage for quick access. Key features include the ability to manage website, username, and password entries, toggle password visibility, copy information to the clipboard, and a responsive design that works well on all device sizes.
             </p>
           </div>
         </div>
