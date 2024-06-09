@@ -218,9 +218,9 @@ const Project = () => {
         {/* Right side - Text */}
         <div className="flex flex-col items-start ml-8">
           <div className="mb-4">
-            <h2 className="text-2xl font-semibold">Use Client</h2>
+            <h2 className="text-2xl font-semibold">Html Portfolio</h2>
             <p className="text-gray-700">
-              Description or details about using the client can go here.
+              THis is a portfolio clone it uses concepts of js , css and html.
             </p>
           </div>
         </div>
