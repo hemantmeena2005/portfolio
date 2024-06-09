@@ -1,95 +1,54 @@
-"use client";
-import { useEffect, useRef, useState } from 'react';
+"use client"
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-
+import SplitText from 'gsap-trial/SplitText'; // Import SplitText from correct package
+import Shery from 'sheryjs';
+import { Link } from 'react-scroll';
 export default function Home() {
-  const followerRef = useRef(null);
-  const buttonsRef = useRef([]);
-  const [isBlack, setIsBlack] = useState(true);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const follower = followerRef.current;
+    gsap.registerPlugin(SplitText);
 
-    const onMouseMove = (event) => {
-      gsap.to(follower, {
-        x: event.clientX,
-        y: event.clientY - 70, // Adjusted to be 70 pixels above the cursor
-        duration: 0.3,
-        ease: 'power1.out',
-      });
+    const split = new SplitText("#head", { type: "chars" });
 
-      // Toggle the color
-      setIsBlack((prev) => !prev);
-    };
+    // Animate each character into place from 100px above, fading in:
+    gsap.from(split.chars, {
+      duration: 1,
+      y: 100,
+      autoAlpha: 0,
+      stagger: 0.05,
+    });
 
-    const onMouseOver = (event) => {
-      if (event.target.classList.contains('hover-effect')) {
-        gsap.to(follower, { opacity: 0, duration: 0.3 });
-      }
-    };
+    // Initialize Shery.js and apply the magnet effect
+    Shery.makeMagnet(".magnet");
+    Shery.hoverWithMediaCircle(".hvr", {
+      videos: ["/0.mp4", "/2.mp4", "/3.mp4"],
+    });
 
-    const onMouseOut = (event) => {
-      if (event.target.classList.contains('hover-effect')) {
-        gsap.to(follower, { opacity: 1, duration: 0.3 });
-      }
-    };
-
-    const attractToCursor = (event) => {
-      buttonsRef.current.forEach((button) => {
-        const rect = button.getBoundingClientRect();
-        const distanceX = event.clientX - (rect.left + rect.width / 2);
-        const distanceY = event.clientY - (rect.top + rect.height / 2);
-        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-        
-        if (distance < 200) {
-          gsap.to(button, {
-            x: distanceX * 0.2,
-            y: distanceY * 0.2,
-            duration: 0.3,
-            ease: 'power1.out',
-          });
-        } else {
-          gsap.to(button, {
-            x: 0,
-            y: 0,
-            duration: 0.3,
-            ease: 'power1.out',
-          });
-        }
-      });
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mousemove', attractToCursor);
-    window.addEventListener('mouseover', onMouseOver);
-    window.addEventListener('mouseout', onMouseOut);
-
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mousemove', attractToCursor);
-      window.removeEventListener('mouseover', onMouseOver);
-      window.removeEventListener('mouseout', onMouseOut);
-    };
   }, []);
-
-  const addButtonRef = (el) => {
-    if (el && !buttonsRef.current.includes(el)) {
-      buttonsRef.current.push(el);
-    }
-  };
 
   return (
     <div className="relative">
-      <div className="absolute z-0 pointer-events-none" ref={followerRef}>
-        <div className={`w-10 h-10 ${isBlack ? 'bg-transparent border-black' : 'bg-transparent border-white'} border-2 rounded-full`}></div>
-      </div>
-
-      <div className='bg-black text-white'>
-        <div className='h-[100vh] w-full p-10 flex justify-center items-center text-center flex-col gap-5'>
-          <h1 className='text-[1.5rem]'>Hello I am Hemant. I am a <br /> <span className='text-[5rem]'>Full Stack Developer</span></h1>
-          <div className='flex gap-5'>
-            <button ref={addButtonRef} className='py-3 px-5 bg-transparent border-2 border-white text-white rounded-full hover-effect'>Contact Me Here</button>
-            <a ref={addButtonRef} href="/r.pdf" download="Hemant_Meena_Resume.pdf" className="py-3 px-5 bg-transparent border-2 border-white text-white rounded-full hover-effect">Download Resume</a>
+      <div className="bg-black h-full text-white">
+        <div className="h-[100vh] w-full p-10 flex justify-center items-center text-center flex-col gap-5">
+          <h1 className="text-[1.5rem]">
+            Hello I am <span className='text-[#04E348]' >Hemant</span> . I am a <br />
+            <span className="text-[5rem] hvr z-50  uppercase font-bold" id="head" ref={textRef}>
+              Full <span className='magnet hvr text-[#A854F7]'>Stack</span> <span className='hvr' > Developer </span>
+            </span>
+          </h1>
+          <div className="flex gap-5"  >
+            <Link to="contact" >
+              <div className=" magnet py-3 px-5 bg-transparent border-2 border-white text-white rounded-full ">
+              Contact Me Here
+              </div>
+            </Link>
+            <Link to="contact" >
+              <div className=" magnet py-3 px-5 bg-transparent border-2 border-white text-white rounded-full ">
+              Download Resume
+              </div>
+            </Link>
           </div>
         </div>
       </div>
